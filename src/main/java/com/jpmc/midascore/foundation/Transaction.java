@@ -1,48 +1,62 @@
 package com.jpmc.midascore.foundation;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Transaction {
-    private long senderId;
-    private long recipientId;
-    private float amount;
 
-    public Transaction() {
+    private Long senderId;
+    private Long receiverId;
+    private Float amount;
+    private Float incentive;
+
+
+        private String id;
+
+        public String getId() {
+            return id;
+        }
+        public void setId(String id) {
+            this.id = id;
+        }
+
+
+
+    public Transaction() {}
+
+    public Transaction(Long senderId, Long receiverId, Float amount, Float incentive) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.amount = amount;
+        this.incentive = incentive;
     }
 
-    public Transaction(long senderId, long recipientId, float amount) {
+    public Long getSenderId() { return senderId; }
+    public Long getReceiverId() { return receiverId; }
+    public Float getAmount() { return amount; }
+    public Float getIncentive() { return incentive; }
+
+    public void setSenderId(Long senderId) {
         this.senderId = senderId;
-        this.recipientId = recipientId;
+    }
+
+    public void setReceiverId(Long receiverId) {
+        this.receiverId = receiverId;
+    }
+
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 
-    public long getSenderId() {
-        return senderId;
+    public void setIncentive(Float incentive) {
+        this.incentive = incentive;
     }
-
-    public void setSenderId(long senderId) {
-        this.senderId = senderId;
-    }
-
-    public long getRecipientId() {
-        return recipientId;
-    }
-
-    public void setRecipientId(long recipientId) {
-        this.recipientId = recipientId;
-    }
-
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
-    }
-
     @Override
     public String toString() {
-        return "Transaction {senderId=" + senderId + ", recipientId=" + recipientId + ", amount=" + amount + "}";
+        return "Transaction{" +
+                "id='" + id + '\'' +
+                ", senderId=" + senderId +
+                ", receiverId=" + receiverId +
+                ", amount=" + amount +
+                ", incentive=" + incentive +
+                '}';
     }
+
 }
